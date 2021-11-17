@@ -7,7 +7,9 @@ Builds follow our usual base / head structure:
  - Base image: `docker image build --target base argovis/datacron:base-<yymmdd>`
  - Run image: `docker image build --target head argovis/datacron:<major.minor.patch>`
 
-Releases are simple releases off of `main`, tagged with the same semver as the run image.
+Push both to `https://hub.docker.com/repository/docker/argovis/datacron` when ready to release.
+
+Code releases are simple releases off of `main`, tagged with the same semver as the run image.
 
 ## Usage
 
