@@ -1,0 +1,36 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: argo-update
+spec:
+  schedule: "0 8 * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: argo-update
+          labels:
+            app: api # pretend to be the api to get through the networkPolicy
+        spec:
+          volumes:
+            - name: logs
+              persistentVolumeClaim:
+                claimName: datacron-logs
+          containers:
+            - name: argo-update
+              image: argovis/datacron:0.1.0
+              imagePullPolicy: Always
+              resources:
+                requests:
+                  memory: "0Gi"
+                  cpu: "0m"
+                limits:
+                  memory: "2Gi"
+                  cpu: "1000m"
+              volumeMounts:
+                - mountPath: "/usr/src/argo-database/logs"
+                  name: logs
+          restartPolicy: OnFailure
+          securityContext:
+            runAsUser: 1000830000
+            runAsGroup: 1000830000
