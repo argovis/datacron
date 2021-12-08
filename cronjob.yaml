@@ -26,7 +26,7 @@ spec:
                   cpu: "0m"
                 limits:
                   memory: "2Gi"
-                  cpu: "1000m"
+                  cpu: "750m"
               volumeMounts:
                 - mountPath: "/usr/src/argo-database/logs"
                   name: logs
