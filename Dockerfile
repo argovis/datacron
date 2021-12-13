@@ -11,4 +11,4 @@ COPY ./*.nc .
 RUN mkdir logs
 RUN chown -R 1000830000:1000830000 /usr/src/argo-database
 USER 1000830000:1000830000
-CMD python add_profiles.py --dbName argo --subset tmp --logName tmp.log --npes 1
+CMD python add_profiles.py --dbName argo --subset tmp --logName /usr/src/argo-database/logs/tmp.log --npes 1
