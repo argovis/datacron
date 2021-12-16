@@ -121,7 +121,7 @@ def create_dir_of_files(df, GDAC, ftpPath, tmpDir):
     os.system(rsyncCommand)
     os.remove(tmpFileName)
             
-def get_last_updated(filename='lastUpdated.txt'):
+def get_last_updated(filename='/usr/src/argo-database/logs/lastUpdated.txt'):
     if not os.path.exists(filename):
         print('{} does not exist. assuming yesterday'.format(filename))
         return datetime.today() - timedelta(days=1)
@@ -131,7 +131,7 @@ def get_last_updated(filename='lastUpdated.txt'):
     date = datetime.strptime(dateStr, '%Y-%m-%d')
     return date
     
-def write_last_updated(date, filename='lastUpdated.txt'):
+def write_last_updated(date, filename='/usr/src/argo-database/logs/lastUpdated.txt'):
     with open(filename, 'w') as f:
         f.write(date)    
 
