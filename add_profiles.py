@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
     if (args.subset == 'tmp') or (args.subset == 'dateRange'):
         logging.warning('cleaning up tmp')
-        #af.tmp_clean_up()
+        af.tmp_clean_up()
 
     for file in glob.glob(r'*.txt'):
         shutil.copy(file, 'logs/') 

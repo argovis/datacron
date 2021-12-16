@@ -103,7 +103,7 @@ def get_mirror_dir(args):
             minDate = datetime.strptime(args.minDate, '%Y-%m-%d')
             maxDate = datetime.strptime(args.maxDate, '%Y-%m-%d')
         else:
-            minDate = tf.get_last_updated(filename='lastUpdated.txt')
+            minDate = tf.get_last_updated(filename='/usr/src/argo-database/logs/lastUpdated.txt')
             maxDate = datetime.today()
         if (args.subset=='dateRange'):
             df = tf.get_df_from_dates(minDate, maxDate)
