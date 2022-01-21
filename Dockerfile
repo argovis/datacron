@@ -9,6 +9,6 @@ FROM argovis/datacron:base-211117 as head
 COPY ./*.py .
 COPY ./*.nc .
 RUN mkdir logs
-RUN chown -R 1000830000:1000830000 /usr/src/argo-database
-USER 1000830000:1000830000
+RUN chown -R 1000660000:1000660000 /usr/src/argo-database
+USER 1000660000:1000660000
 CMD python add_profiles.py --dbName argo --subset tmp --logName /usr/src/argo-database/logs/tmp.log --npes 1
